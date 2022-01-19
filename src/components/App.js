@@ -40,7 +40,10 @@ export default function App() {
   return (
     <div className='container'>
       <h1>Some of my friends:</h1>
-      {/* start by mapping over the friends array...*/}
+      { friends.length
+          ? friends.map(friend => <Friend info={friend} key={friend.id}/> ) 
+          : <p>Friends coming soon!</p>
+      }
       {
         currentFriendId && <Details friendId={currentFriendId} close={closeDetails} />
       }
