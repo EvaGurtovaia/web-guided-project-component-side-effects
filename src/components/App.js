@@ -41,9 +41,21 @@ export default function App() {
     <div className='container'>
       <h1>Some of my friends:</h1>
       { friends.length
-          ? friends.map(friend => <Friend info={friend} key={friend.id}/> ) 
+          ? friends.map(friend => <Friend 
+                                    info={friend} 
+                                    key={friend.id} 
+                                    openDetails={openDetails} 
+                                  /> )
           : <p>Friends coming soon!</p>
       }
+      {/**
+        * const props = {
+            info: friend,
+            key: friend.id,
+            openDetails: openDetails
+          }
+          Friend(props);
+      */}
       {
         currentFriendId && <Details friendId={currentFriendId} close={closeDetails} />
       }
